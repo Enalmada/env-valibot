@@ -1,6 +1,6 @@
 {
   "name": "@enalmada/env-valibot",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "build": "rm -rf dist && bun --bun tsc",
     "changeset:version": "bun changeset version",
