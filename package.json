@@ -23,7 +23,10 @@
   "bugs": {
     "url": "https://github.com/Enalmada/env-valibot/issues"
   },
-  "repository": "https://github.com/Enalmada/env-valibot",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Enalmada/env-valibot.git"
+  },
   "homepage": "https://github.com/Enalmada/env-valibot",
   "private": false,
   "publishConfig": {
