@@ -1,5 +1,11 @@
 # @enalmada/env-valibot
 
+## 0.0.5
+
+### Patch Changes
+
+- c1f4030: modules to package.json
+
 ## 0.0.4
 
 ### Patch Changes
