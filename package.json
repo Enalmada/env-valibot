@@ -2,8 +2,8 @@
   "name": "@enalmada/env-valibot",
   "version": "0.0.2",
   "scripts": {
-    "build": "rm -rf dist && bun --bun tsc",
-    "changeset:version": "bun changeset version",
+    "build": "rm -rf dist && bun build.mjs && bun run build:declaration",
+    "build:declaration": "tsc --emitDeclarationOnly",
     "release": "bun run build && bunx changeset publish"
   },
   "dependencies": {

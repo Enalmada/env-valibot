@@ -15,6 +15,13 @@ bun add @enalmada/env-valibot
 ### Define your schema
 
 ```ts
+// next.config.js
+import './src/env.mjs';
+
+...
+```
+
+```ts
 // src/env.mjs
 // @ts-check
 import { createEnvSchema, required, validateEnv } from 'env-valibot';
@@ -58,3 +65,11 @@ export { serverEnv, clientEnv };
 [t3-env](https://github.com/t3-oss/t3-env)
 * only supported zod.  I wanted to use valibot for smaller package size
 * only supported buildtime (in progress at time of writing).  I needed runtime variable support.
+
+## Build Notes
+* Using [latest module and target settings](https://stackoverflow.com/questions/72380007/what-typescript-configuration-produces-output-closest-to-node-js-18-capabilities/72380008#72380008) for current LTS
+* using tsc for types until [bun support](https://github.com/oven-sh/bun/issues/5141#issuecomment-1727578701) comes around
+
+## Contribute
+Using [changesets](https://github.com/changesets/changesets) so please remember to run "changeset" with any PR.  
+Give consideration for the summary as it is what will show up in the changelog.
