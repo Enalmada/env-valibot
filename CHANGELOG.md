@@ -1,5 +1,11 @@
 # @enalmada/env-valibot
 
+## 0.0.4
+
+### Patch Changes
+
+- 8e3b4be: build with bun
+
 ## 0.0.3
 
 ### Patch Changes
