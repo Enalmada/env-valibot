@@ -1,9 +1,20 @@
-import { Issue, minLength, object, safeParse, SafeParseResult, string } from 'valibot';
+import {
+  minLength,
+  object,
+  safeParse,
+  string,
+  type Issue,
+  type SafeParseResult as ValibotSafeParseResult,
+} from 'valibot';
 
-export const required = (key: string): any => string([minLength(1, `${key} required`)]);
+type Schema = ReturnType<typeof object> | ReturnType<typeof string>; // Add other schema types as needed
 
-export const createEnvSchema = (schemaDefinition: Record<string, any>): any =>
-  object(schemaDefinition);
+export const required = (key: string): ReturnType<typeof string> =>
+  string([minLength(1, `${key} required`)]);
+
+export const createEnvSchema = (
+  schemaDefinition: Record<string, Schema>
+): ReturnType<typeof object> => object(schemaDefinition);
 
 export interface ReducedIssue {
   attribute: string | undefined;
@@ -12,10 +23,10 @@ export interface ReducedIssue {
 }
 
 export function validateEnv(
-  schema: any,
+  schema: Schema,
   envVars: Record<string, unknown>,
   skipEnvValidation: string | undefined = 'false'
-): SafeParseResult<any> | undefined {
+): ValibotSafeParseResult<Schema> | undefined {
   if (skipEnvValidation !== 'true') {
     const parsed = safeParse(schema, envVars);
     if (!parsed.success) {
@@ -29,9 +40,11 @@ export function validateEnv(
   }
 }
 
-function reduceIssues(issues: Issue[]): ReducedIssue[] {
+export function reduceIssues(issues: Issue[]): ReducedIssue[] {
   return issues.map((issue) => ({
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     attribute: issue.path?.[0].key,
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     input: issue.input,
     message: issue.message,
   }));
