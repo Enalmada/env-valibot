@@ -13,13 +13,13 @@ function validateEnv(schema, envVars, skipEnvValidation = "false") {
     return;
   }
 }
-var reduceIssues = function(issues) {
+function reduceIssues(issues) {
   return issues.map((issue) => ({
     attribute: issue.path?.[0].key,
     input: issue.input,
     message: issue.message
   }));
-};
+}
 var required = (key) => string([minLength(1, `${key} required`)]);
 var createEnvSchema = (schemaDefinition) => object(schemaDefinition);
 export {
