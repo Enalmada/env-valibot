@@ -1,5 +1,10 @@
 // src/EnvValibot.ts
-import {minLength, object, safeParse, string} from "valibot";
+import {
+minLength,
+object,
+safeParse,
+string
+} from "valibot";
 function validateEnv(schema, envVars, skipEnvValidation = "false") {
   if (skipEnvValidation !== "true") {
     const parsed = safeParse(schema, envVars);
