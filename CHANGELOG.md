@@ -1,5 +1,11 @@
 # @enalmada/env-valibot
 
+## 0.0.6
+
+### Patch Changes
+
+- 0eb9211: build file update
+
 ## 0.0.5
 
 ### Patch Changes
