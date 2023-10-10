@@ -1,5 +1,11 @@
 # @enalmada/env-valibot
 
+## 0.0.7
+
+### Patch Changes
+
+- 9abc057: relax types
+
 ## 0.0.6
 
 ### Patch Changes
