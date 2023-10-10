@@ -1,20 +1,23 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   minLength,
   object,
   safeParse,
   string,
+  type BaseSchema,
   type Issue,
   type SafeParseResult as ValibotSafeParseResult,
 } from 'valibot';
 
-type Schema = ReturnType<typeof object> | ReturnType<typeof string>; // Add other schema types as needed
+// Update Schema type:
+type Schema = BaseSchema<any, any>;
 
 export const required = (key: string): ReturnType<typeof string> =>
   string([minLength(1, `${key} required`)]);
 
 export const createEnvSchema = (
   schemaDefinition: Record<string, Schema>
-): ReturnType<typeof object> => object(schemaDefinition);
+): ReturnType<typeof object> => object(schemaDefinition as any);
 
 export interface ReducedIssue {
   attribute: string | undefined;

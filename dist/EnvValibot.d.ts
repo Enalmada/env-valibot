@@ -1,5 +1,5 @@
-import { object, string, type Issue, type SafeParseResult as ValibotSafeParseResult } from 'valibot';
-type Schema = ReturnType<typeof object> | ReturnType<typeof string>;
+import { object, string, type BaseSchema, type Issue, type SafeParseResult as ValibotSafeParseResult } from 'valibot';
+type Schema = BaseSchema<any, any>;
 export declare const required: (key: string) => ReturnType<typeof string>;
 export declare const createEnvSchema: (schemaDefinition: Record<string, Schema>) => ReturnType<typeof object>;
 export interface ReducedIssue {
