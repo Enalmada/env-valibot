@@ -1,5 +1,12 @@
 # @enalmada/env-valibot
 
+## 0.0.8
+
+### Patch Changes
+
+- f2644fd: Updated dependency `lint-staged` to `15.0.2`.
+- e97a738: dependency updates
+
 ## 0.0.7
 
 ### Patch Changes
