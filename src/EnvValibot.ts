@@ -4,14 +4,12 @@ import {
   object,
   safeParse,
   string,
-  type _ParseResult,
   type BaseSchema,
   type Issue,
   type SafeParseResult as ValibotSafeParseResult,
 } from 'valibot';
 
-// Update Schema type:
-type Schema = BaseSchema<any, _ParseResult<any>>;
+type Schema = BaseSchema<any, any>;
 
 export const required = (key: string): ReturnType<typeof string> =>
   string([minLength(1, `${key} required`)]);
