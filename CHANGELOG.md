@@ -1,5 +1,11 @@
 # @enalmada/env-valibot
 
+## 0.0.9
+
+### Patch Changes
+
+- f8a9846: more specific Schema due to valibot update
+
 ## 0.0.8
 
 ### Patch Changes
