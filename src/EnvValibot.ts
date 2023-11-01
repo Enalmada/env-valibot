@@ -1,16 +1,17 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment */
 import {
   minLength,
   object,
   safeParse,
   string,
+  type _ParseResult,
   type BaseSchema,
   type Issue,
   type SafeParseResult as ValibotSafeParseResult,
 } from 'valibot';
 
 // Update Schema type:
-type Schema = BaseSchema<any, any>;
+type Schema = BaseSchema<any, _ParseResult<any>>;
 
 export const required = (key: string): ReturnType<typeof string> =>
   string([minLength(1, `${key} required`)]);
@@ -45,9 +46,7 @@ export function validateEnv(
 
 export function reduceIssues(issues: Issue[]): ReducedIssue[] {
   return issues.map((issue) => ({
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     attribute: issue.path?.[0].key,
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     input: issue.input,
     message: issue.message,
   }));
