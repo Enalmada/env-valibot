@@ -1,5 +1,11 @@
 # @enalmada/env-valibot
 
+## 0.0.11
+
+### Patch Changes
+
+- c433176: dependency updates
+
 ## 0.0.10
 
 ### Patch Changes
