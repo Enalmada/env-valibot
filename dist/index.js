@@ -19,11 +19,14 @@ function validateEnv(schema, envVars, skipEnvValidation = "false") {
   }
 }
 function reduceIssues(issues) {
-  return issues.map((issue) => ({
-    attribute: issue.path?.[0].key,
-    input: issue.input,
-    message: issue.message
-  }));
+  return issues.map((issue) => {
+    const attribute = typeof issue.path?.[0].key === "string" ? issue.path?.[0].key : undefined;
+    return {
+      attribute,
+      input: issue.input,
+      message: issue.message
+    };
+  });
 }
 var required = (key) => string([minLength(1, `${key} required`)]);
 var createEnvSchema = (schemaDefinition) => object(schemaDefinition);
