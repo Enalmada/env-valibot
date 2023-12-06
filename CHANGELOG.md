@@ -1,5 +1,11 @@
 # @enalmada/env-valibot
 
+## 0.0.12
+
+### Patch Changes
+
+- dcb750d: valibot schemas in schema type
+
 ## 0.0.11
 
 ### Patch Changes
