@@ -28,8 +28,8 @@ function reduceIssues(issues) {
     };
   });
 }
-var required = (key) => string([minLength(1, `${key} required`)]);
 var createEnvSchema = (schemaDefinition) => object(schemaDefinition);
+var required = (key) => string([minLength(1, `${key} required`)]);
 export {
   validateEnv,
   required,
