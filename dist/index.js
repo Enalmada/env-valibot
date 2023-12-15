@@ -1,4 +1,4 @@
-// src/EnvValibot.ts
+// src/index.ts
 import {
 minLength,
 object,
@@ -33,5 +33,6 @@ var required = (key) => string([minLength(1, `${key} required`)]);
 export {
   validateEnv,
   required,
+  reduceIssues,
   createEnvSchema
 };
