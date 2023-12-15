@@ -1,12 +1,6 @@
 import { minLength, object, safeParse, string, type Issue } from 'valibot';
 
-import {
-  createEnvSchema,
-  reduceIssues,
-  required,
-  validateEnv,
-  type ReducedIssue,
-} from '../src/EnvValibot';
+import { createEnvSchema, reduceIssues, required, validateEnv, type ReducedIssue } from '../src';
 
 describe('index', () => {
   describe('required', () => {
