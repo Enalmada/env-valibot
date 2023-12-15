@@ -1,5 +1,11 @@
 # @enalmada/env-valibot
 
+## 0.0.13
+
+### Patch Changes
+
+- 7dd8470: modified build process
+
 ## 0.0.12
 
 ### Patch Changes
