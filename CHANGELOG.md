@@ -1,5 +1,11 @@
 # @enalmada/env-valibot
 
+## 0.0.14
+
+### Patch Changes
+
+- 3f09dcd: dependency updates
+
 ## 0.0.13
 
 ### Patch Changes
