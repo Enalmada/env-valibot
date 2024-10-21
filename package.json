@@ -1,6 +1,6 @@
 {
 	"name": "@enalmada/env-valibot",
-	"version": "0.0.14",
+	"version": "0.0.15",
 	"scripts": {
 		"build": "bun build:clear && bun build:script && bun build:declaration",
 		"build:clear": "rm -rf dist",
