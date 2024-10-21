@@ -1,22 +1,24 @@
 // src/index.ts
 import {
-minLength,
-object,
-safeParse,
-string
+  minLength,
+  object,
+  pipe,
+  safeParse,
+  string
 } from "valibot";
+var createEnvSchema = (schemaDefinition) => object(schemaDefinition);
+var required = (key) => pipe(string(), minLength(1, `${key} required`));
 function validateEnv(schema, envVars, skipEnvValidation = "false") {
   if (skipEnvValidation !== "true") {
     const parsed = safeParse(schema, envVars);
     if (!parsed.success) {
       const reducedIssues = reduceIssues(parsed.issues);
-      console.error("Issue with environment variables: " + JSON.stringify(reducedIssues));
+      console.error(`Issue with environment variables: ${JSON.stringify(reducedIssues)}`);
       process.exit(1);
     }
     return parsed;
-  } else {
-    return;
   }
+  return;
 }
 function reduceIssues(issues) {
   return issues.map((issue) => {
@@ -28,8 +30,6 @@ function reduceIssues(issues) {
     };
   });
 }
-var createEnvSchema = (schemaDefinition) => object(schemaDefinition);
-var required = (key) => string([minLength(1, `${key} required`)]);
 export {
   validateEnv,
   required,

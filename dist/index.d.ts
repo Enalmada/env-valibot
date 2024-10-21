@@ -1,12 +1,12 @@
-import { object, string, type BaseSchema, type EnumSchema, type InstanceSchema, type IntersectSchema, type Issue, type NanSchema, type NeverSchema, type NonNullableSchema, type NonNullishSchema, type NonOptionalSchema, type NullableSchema, type NullishSchema, type NumberSchema, type OptionalSchema, type PicklistSchema, type RecursiveSchema, type SpecialSchema, type StringSchema, type UnionSchema, type UnknownSchema, type SafeParseResult as ValibotSafeParseResult, type VoidSchema } from 'valibot';
-type Schema = BaseSchema<any, any> | StringSchema<any> | NumberSchema<any> | PicklistSchema<any> | OptionalSchema<any, any> | EnumSchema<any> | InstanceSchema<any> | IntersectSchema<any> | NanSchema | NeverSchema | NonNullableSchema<any> | NonNullishSchema<any> | NonOptionalSchema<any> | NullableSchema<any> | NullishSchema<any> | RecursiveSchema<any> | SpecialSchema<any> | UnionSchema<any> | UnknownSchema | VoidSchema;
+import { type BaseIssue, type BaseSchema, type EnumSchema, type GenericSchema, type InstanceSchema, type IntersectSchema, type LazySchema, type NanSchema, type NeverSchema, type NonNullableSchema, type NonNullishSchema, type NonOptionalSchema, type NullableSchema, type NullishSchema, type NumberSchema, type OptionalSchema, type PicklistSchema, type StringSchema, type UnionSchema, type UnknownSchema, type SafeParseResult as ValibotSafeParseResult, type VoidSchema, object } from "valibot";
+type Schema = GenericSchema<any, any> | StringSchema<any> | NumberSchema<any> | PicklistSchema<any, any> | OptionalSchema<any, any> | EnumSchema<any, any> | InstanceSchema<any, any> | IntersectSchema<any, any> | NanSchema<any> | NeverSchema<any> | NonNullableSchema<any, any> | NonNullishSchema<any, any> | NonOptionalSchema<any, any> | NullableSchema<any, any> | NullishSchema<any, any> | LazySchema<any> | BaseSchema<any, any, any> | UnionSchema<any, any> | UnknownSchema | VoidSchema<any>;
 export declare const createEnvSchema: (schemaDefinition: Record<string, Schema>) => ReturnType<typeof object>;
-export declare const required: (key: string) => ReturnType<typeof string>;
+export declare const required: (key: string) => import("valibot").SchemaWithPipe<[StringSchema<undefined>, import("valibot").MinLengthAction<string, 1, `${string} required`>]>;
 export interface ReducedIssue {
     attribute: string | undefined;
     input: unknown;
     message: string;
 }
 export declare function validateEnv(schema: Schema, envVars: Record<string, unknown>, skipEnvValidation?: string | undefined): ValibotSafeParseResult<Schema> | undefined;
-export declare function reduceIssues(issues: Issue[]): ReducedIssue[];
+export declare function reduceIssues(issues: BaseIssue<any>[]): ReducedIssue[];
 export {};
