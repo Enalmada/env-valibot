@@ -1,5 +1,11 @@
 # @enalmada/env-valibot
 
+## 0.0.15
+
+### Patch Changes
+
+- 7bc698d: valibot 0.42
+
 ## 0.0.14
 
 ### Patch Changes
